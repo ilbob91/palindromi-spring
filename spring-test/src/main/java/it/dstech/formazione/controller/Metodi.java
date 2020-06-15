@@ -1,27 +1,28 @@
 package it.dstech.formazione.controller;
 
+
 import java.util.List;
 
 public class Metodi {
-	private List<String> parolePalindrome;
+	
 	private String testo;
 
-	public Metodi(List<String> parolePalindrome, String testo) {
-		this.parolePalindrome = parolePalindrome;
+	public Metodi(String testo) {
+	
 		this.testo = testo;
 	}
 
-	public List<String> listaPalindromi() {
-
-		for (int i = 0; i < splitter().length; i++) {
-			if (isPalindrome(splitter()[i])) {
-				parolePalindrome.add(splitter()[i]);
+	public List<String> listaPalindromi(List<String> parolePalindrome) {
+		String[] parole = splitter();
+		for (int i = 0; i < parole.length; i++) {
+			if (isPalindrome(parole[i])) {
+				parolePalindrome.add(parole[i]);
 			}
 		}
 		return parolePalindrome;
 	}
 
-	private String[] splitter() {
+	public String[] splitter() {
 		return testo.split(" ");
 	}
 
@@ -29,21 +30,22 @@ public class Metodi {
 		return splitter().length;
 	}
 
-	public int numeroParolePalindrome() {
-		return listaPalindromi().size();
+	public int numeroParolePalindrome(List<String> parole) {
+		return listaPalindromi(parole).size();
 	}
 
-	private boolean isPalindrome(String string) {
-		if (string.length() < 2) {
+	public boolean isPalindrome(String parola) {
+		if (parola.length() < 2)
 			return true;
-		} else {
-			for (int i = 0; i < string.length() / 2; i++) {
-				if (string.charAt(i) != string.charAt((string.length() - 1) - i)) {
-					return false;
-				}
-
-			}
-			return true;
+        for (int i = 0; i < parola.length()/2; i++) {
+        	
+        	
+        	if (parola.charAt(i) !=parola.charAt((parola.length()-1)-i)) {
+                return false;
+            }
+			
 		}
+			return true;
 	}
+	
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
 <h3>La frase è lunga: ${numero}</h3><br>
-<h3>Le parole palindrome nella frase sono: ${numeroParole}</h3><br>
+<h3>Le parole palindrome nella frase sono: ${lista.size()}</h3><br>
 <h3>Le parole palindrome sono:</h3>
  <c:forEach items="${lista}" var = "i" >
          <c:out value = "${i}"/>
