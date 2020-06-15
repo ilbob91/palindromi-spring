@@ -12,7 +12,7 @@
 <h3>Le parole palindrome nella frase sono: ${numeroParole}</h3><br>
 <h3>Le parole palindrome sono:</h3>
  <c:forEach items="${lista}" var = "i" >
-         Item <c:out value = "${i}"/>
+         <c:out value = "${i}"/>
       </c:forEach>
 </body>
 </html>

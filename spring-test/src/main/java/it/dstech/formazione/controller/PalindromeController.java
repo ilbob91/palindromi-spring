@@ -23,7 +23,7 @@ public class PalindromeController {
 				parolePalindrome.add(parole[i]);
 			}
 		}
-ModelAndView oggettoVista = new ModelAndView();
+ModelAndView oggettoVista = new ModelAndView("risultato");
 oggettoVista.addObject("lista", parolePalindrome);
 oggettoVista.addObject("numeroParole", parolePalindrome.size());
 oggettoVista.addObject("numero", numeroParoleNellaFrase);
