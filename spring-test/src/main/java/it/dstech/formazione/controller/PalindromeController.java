@@ -14,37 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class PalindromeController {
 	@RequestMapping(value = "/testChiamata", method = RequestMethod.POST)
 	public ModelAndView checkParameter(@RequestParam("testo") String testo, Model model) {
-		List<String> parolePalindrome = new ArrayList<String>();
+		List<String> lista = new ArrayList<String>();
+		Metodi metodi = new Metodi(testo, lista);
+		List<String> parolePalindrome = metodi.listaPalindromi();
 		ModelAndView oggettoVista = new ModelAndView("risultato");
-		String[] parole = splitter(testo);
-		for (int i = 0; i < parole.length; i++) {
-			if (isPalindrome(parole[i])) {
-				parolePalindrome.add(parole[i]);
-			}
-		}
 		oggettoVista.addObject("lista", parolePalindrome);
-		oggettoVista.addObject("numero", numeroParole(testo));
+		oggettoVista.addObject("numero", metodi.numeroParole());
 		return oggettoVista;
 	}
 
-	public boolean isPalindrome(String parola) {
-		if (parola.length() < 2)
-			return true;
-		for (int i = 0; i < parola.length() / 2; i++) {
-
-			if (parola.charAt(i) != parola.charAt((parola.length() - 1) - i)) {
-				return false;
-			}
-
-		}
-		return true;
-	}
-
-	public String[] splitter(String testo) {
-		return testo.split(" ");
-	}
-
-	public int numeroParole(String testo) {
-		return splitter(testo).length;
-	}
+	
 }
